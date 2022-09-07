@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import CartWidget from './CartWidget';
 
 const pages = ['Catalogo', 'Promociones', 'Contacto'];
 
@@ -123,6 +124,7 @@ const NavBar = () => {
               </Button>
             ))}
           </Box>
+        <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>

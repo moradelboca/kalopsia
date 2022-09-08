@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemCount stock="5" initial="0" onAdd="onAdd" />
+      <ItemListContainer />
     </div>
   );
 }

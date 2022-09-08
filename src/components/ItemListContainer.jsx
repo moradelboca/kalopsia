@@ -5,7 +5,7 @@ export default function ItemListContainer() {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
   const [error, setError] = useState('');
-  
+
   useEffect(() => {
     const itemPromise = new Promise((res, rej) => {
       setTimeout(() => {
@@ -18,15 +18,9 @@ export default function ItemListContainer() {
     })
   
     itemPromise
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      .then((res) => { setItems(res) })
+      .catch((err) => { setError(err) })
+      .finally(() => { setLoading(false) })
   }, [])
   return (
     <div>

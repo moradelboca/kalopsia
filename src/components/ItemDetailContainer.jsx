@@ -10,8 +10,15 @@ export default function ItemDetailContainer() {
   useEffect(() => {
     const getItem = new Promise ((res, rej) => {
         setTimeout(() => {
-          res({ id:100, name:'Pulsera mock', price:750, imageURL:'./', description:'Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.' })
-        }, 2000)
+          res({
+            id: 100,
+            name: "Pulsera mock",
+            price: 750,
+            imageURL: "./",
+            description:
+              "Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.",
+          });
+        }, 2000);
     })
     getItem
       .then((res) => { setItem(res) })
@@ -22,8 +29,8 @@ export default function ItemDetailContainer() {
   return (
     <div>
       {loading ? <p>Loading...</p> : null}
-      {error ? <p>Error!</p> : <ItemDetail item={item} />}
+      {error ? <p>Error!</p> : null}
+      {item.id ? <ItemDetail item={item} /> : null}
     </div>
-    
   )
 }

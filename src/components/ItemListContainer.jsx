@@ -11,9 +11,9 @@ export default function ItemListContainer() {
     let itemPromise = new Promise((res, rej) => {
       setTimeout(() => {
         res([
-          { id:0, name:'Collar kalopsia', price:1200 },
-          { id:1, name:'Pulsera rainbow', price:700 },
-          { id:2, name:'Collar happiness', price:1000 },
+          { id:0, name:'Collar kalopsia', price:1200, imageURL:'./' },
+          { id:1, name:'Pulsera rainbow', price:700, imageURL:'./' },
+          { id:2, name:'Collar happiness', price:1000, imageURL:'./' },
         ])
       }, 2000)
     })

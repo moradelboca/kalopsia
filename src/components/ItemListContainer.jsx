@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList';
-import Item from './Item';
 
 export default function ItemListContainer() {
   const [loading, setLoading] = useState(true);
@@ -8,7 +7,7 @@ export default function ItemListContainer() {
   const [error, setError] = useState('');
   
   useEffect(() => {
-    let itemPromise = new Promise((res, rej) => {
+    const itemPromise = new Promise((res, rej) => {
       setTimeout(() => {
         res([
           { id:0, name:'Collar kalopsia', price:1200, imageURL:'./' },

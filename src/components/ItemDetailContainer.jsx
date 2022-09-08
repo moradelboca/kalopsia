@@ -7,8 +7,28 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   
+  const getItem = () => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res({
+          id: 100,
+          name: "Pulsera mock",
+          price: 750,
+          imageURL: "./",
+          description:
+            "Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.",
+        });
+      }, 2000)
+    })
+  }
+
   useEffect(() => {
-    const getItem = new Promise ((res, rej) => {
+    const itemPromise = getItem()
+    itemPromise
+      .then((res) => { setItem(res) })
+      .catch((err) => { setError(err) })
+      .finally(() => { setLoading(false) })
+    /* const getItem = new Promise ((res, rej) => {
         setTimeout(() => {
           res({
             id: 100,
@@ -18,12 +38,13 @@ export default function ItemDetailContainer() {
             description:
               "Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.",
           });
-        }, 2000);
+        }, 2000)
     })
     getItem
       .then((res) => { setItem(res) })
       .catch((err) => { setError(err) })
-      .finally(() => { setLoading(false) })
+      .finally(() => { setLoading(false) }) */
+    
   }, [])
   
   return (

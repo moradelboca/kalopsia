@@ -1,17 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemList from './components/ItemList';
+import './App.css'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import ItemListContainer from './components/ItemListContainer'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <ItemDetailContainer />
-    </div>
-  );
+    <BrowserRouter>
+
+    <NavBar />
+
+    <Routes>
+      <Route />
+      <Route />
+      <Route />
+    </Routes>
+
+    <Footer />
+
+    </BrowserRouter>
+  )
 }
+
 
 export default App;

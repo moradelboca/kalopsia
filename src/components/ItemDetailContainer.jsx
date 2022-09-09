@@ -17,7 +17,7 @@ export default function ItemDetailContainer() {
           imageURL: "./",
           description:
             "Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.",
-        });
+        })
       }, 2000)
     })
   }
@@ -25,26 +25,9 @@ export default function ItemDetailContainer() {
   useEffect(() => {
     const itemPromise = getItem()
     itemPromise
-      .then((res) => { setItem(res) })
-      .catch((err) => { setError(err) })
-      .finally(() => { setLoading(false) })
-    /* const getItem = new Promise ((res, rej) => {
-        setTimeout(() => {
-          res({
-            id: 100,
-            name: "Pulsera mock",
-            price: 750,
-            imageURL: "./",
-            description:
-              "Pulsera de color negro y rojo, con piedras de rio. Tiene un diametro de 20mm.",
-          });
-        }, 2000)
-    })
-    getItem
-      .then((res) => { setItem(res) })
-      .catch((err) => { setError(err) })
-      .finally(() => { setLoading(false) }) */
-    
+      .then((res) => setItem(res))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false))
   }, [])
   
   return (

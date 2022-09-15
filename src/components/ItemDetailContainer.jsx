@@ -59,11 +59,13 @@ export default function ItemDetailContainer() {
     })  
     itemPromise
       .then( res => {
+        // eslint-disable-next-line
         setItem(res.find(item => item.id == itemID))
       })
       .catch( err => setError(err) )
       .finally( () => setLoading(false) )
-  }, [itemID])
+      // eslint-disable-next-line
+  }, [])
   
   
   return (

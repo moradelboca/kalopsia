@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
 
+// Esta variable se utiliza para simular un fetch
 let itemsList = [
   {
     id: 1,
@@ -44,32 +45,41 @@ let itemsList = [
     imageURL: ["/wild-negro", "/wild-rojo"],
   },
 ]
+// Esta variable guarda exactamente lo mismo que arriba, pero esta para simular un fetch
+let allItems = []
 
 export default function ItemListContainer() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(!allItems.length && true)
   const [items, setItems] = useState([])
   const [error, setError] = useState(false)
   const { categoryID } = useParams()
 
   useEffect(() => {
-    setItems([])
-    setError(false)
-    setLoading(true)
-    console.log(categoryID)
     let itemsPromise = new Promise ((res, rej) => {
       setTimeout(() => res(itemsList), 2000)
     })
     itemsPromise
       .then(res => {
-        if (categoryID){
-          setItems( res.filter( item => item.category == categoryID ))
-        }
-        else{
-          setItems(res)
-        }
+        allItems = res
+        categoryID ?
+          // eslint-disable-next-line
+          setItems( allItems.filter( item => item.category == categoryID ))
+          :
+          setItems(allItems)
       })
       .catch(err => setError(err))
       .finally(() => setLoading(false))
+      // eslint-disable-next-line
+  }, [])
+
+   useEffect(() => {
+    if (allItems.length){
+      categoryID ?
+        // eslint-disable-next-line
+        setItems( allItems.filter( item => item.category == categoryID ))
+        : 
+        setItems(allItems)
+    }
   }, [categoryID])
 
   return (

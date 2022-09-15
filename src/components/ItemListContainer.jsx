@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from './ItemList';
+import { useParams } from 'react-router-dom'
+import ItemList from './ItemList'
 
 let itemsList = [
   {
     id: 1,
     name: "Irida",
-    type: "collar",
+    category: 1,
     colors: [""],
     price: 1600,
     description:
@@ -15,7 +16,7 @@ let itemsList = [
   {
     id: 2,
     name: "Happy Face",
-    type: "collar",
+    category: 1,
     colors: [""],
     price: 800,
     description:
@@ -25,7 +26,7 @@ let itemsList = [
   {
     id: 3,
     name: "Hailey",
-    type: "collar",
+    category: 1,
     colors: ["rojo", "verde", "marron", "azul", "violeta"],
     price: 700,
     description:
@@ -35,7 +36,7 @@ let itemsList = [
   {
     id: 4,
     name: "Wild",
-    type: "pulsera",
+    category: 2,
     colors: ["negro", "celeste", "rojo"],
     price: 1600,
     description:
@@ -45,19 +46,31 @@ let itemsList = [
 ]
 
 export default function ItemListContainer() {
-  const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState([]);
-  const [error, setError] = useState('');
-  
+  const [loading, setLoading] = useState(true)
+  const [items, setItems] = useState([])
+  const [error, setError] = useState(false)
+  const { categoryID } = useParams()
+
   useEffect(() => {
-    let itemPromise = new Promise ((res, rej) => {
+    setItems([])
+    setError(false)
+    setLoading(true)
+    console.log(categoryID)
+    let itemsPromise = new Promise ((res, rej) => {
       setTimeout(() => res(itemsList), 2000)
     })
-    itemPromise
-      .then(res => setItems(res))
+    itemsPromise
+      .then(res => {
+        if (categoryID){
+          setItems( res.filter( item => item.category == categoryID ))
+        }
+        else{
+          setItems(res)
+        }
+      })
       .catch(err => setError(err))
       .finally(() => setLoading(false))
-  }, [])
+  }, [categoryID])
 
   return (
     <div>

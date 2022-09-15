@@ -1,10 +1,15 @@
 import React from 'react'
 import Item from './Item'
+import Box from '@mui/material/Box'
 
 export default function ItemList({ items }) {
   return (
-    <div>
-        {items.map( item => <Item key={item.id} item={item} /> )}
-    </div>
+    <Box sx={{
+      display:"flex",
+      flexWrap: "wrap",
+      gap:10
+    }}>
+      {items.map( item => <Item key={item.id} item={item} /> )}
+    </Box>
   )
 }

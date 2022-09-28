@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/react/static/css/main.ef549c0d.css",
-    "main.js": "/react/static/js/main.74bae0eb.js",
+    "main.js": "/react/static/js/main.b9483090.js",
     "static/js/787.7ef48a85.chunk.js": "/react/static/js/787.7ef48a85.chunk.js",
-    "static/media/logokalopsia.png": "/react/static/media/logokalopsia.f78dce20b2e26dee6900.png",
     "index.html": "/react/index.html",
     "main.ef549c0d.css.map": "/react/static/css/main.ef549c0d.css.map",
-    "main.74bae0eb.js.map": "/react/static/js/main.74bae0eb.js.map",
+    "main.b9483090.js.map": "/react/static/js/main.b9483090.js.map",
     "787.7ef48a85.chunk.js.map": "/react/static/js/787.7ef48a85.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ef549c0d.css",
-    "static/js/main.74bae0eb.js"
+    "static/js/main.b9483090.js"
   ]
 }

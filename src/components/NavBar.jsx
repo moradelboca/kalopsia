@@ -8,13 +8,12 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
 import CartWidget from './CartWidget'
-import logo from '../img/logokalopsia.png'
 import { Link } from 'react-router-dom'
 
 export default function NavBar() {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null)
-
+  const logoURL = "https://i.ibb.co/gF6zt7b/logokalopsia.png"
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
   }
@@ -25,7 +24,7 @@ export default function NavBar() {
     <Box id="navbar">
       <AppBar position="static" sx={{ bgcolor:'common.white' }}>
         <Toolbar>
-          <Link to='/'><img src={logo} alt='Logo Kalopsia' height={50}></img></Link>
+          <Link to='/'><img src={logoURL} alt='Logo Kalopsia' height={50}></img></Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton onClick={handleOpenNavMenu} color='primary'>
               <MenuIcon />

@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from 'react'
 
-export default function ItemCount({ stock, initial, onAdd }) {
+export default function ItemCount({ item, stock, setCart, cart }) {
     
-    let [count, setCount] = useState(initial)
+    let [count, setCount] = useState(0)
 
     function addItem(){
         if (count<stock) { setCount(count+1) }
     }
     function removeItem(){
         if (count>0) { setCount(count-1) }
-    }   
+    }
+    
+    const onAdd = () => {
+        let purchase = {
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity:count
+        }
+        setCart(oldCart => [...oldCart, purchase])
+    }
 
     return (
         <div>
-            <h3>Camisa triger</h3>
+            <h3>Ingrese la cantidad</h3>
             <p>{count}</p>
             <button onClick={ () => removeItem() }>-</button>
             <button onClick={ () => addItem() }>+</button>
-            <button>Agregar al carrito</button>
+            <button onClick={ () => onAdd() }>Agregar al carrito</button>
         </div>
     )
 }

@@ -12,7 +12,7 @@ export default function Item({ item }) {
           <CardContent>
             <h3>{item.id}- {item.name}</h3>
             <p>{item.price}</p>
-            <img src={item.imageURL} alt={`Foto de ${item.name}`} />
+            <img src={item.imageURL} alt={`Foto de ${item.name}`} width={'100%'} />
           </CardContent>
         </CardActionArea>
       </Card>

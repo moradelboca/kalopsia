@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import CartProvider from './components/CartProvider'
 
 const theme = createTheme({
   palette: {
@@ -29,23 +30,21 @@ const theme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-
-      <NavBar />
-
-      <Routes>
-        {/* <Route exact path='/' element={ <Landing /> }/>
-        <Route exact path='/category' element={ <ItemListContainer /> }/> */}
-        <Route exact path='/' element={ <ItemListContainer /> }/>
-        <Route exact path='/category/:categoryID' element={ <ItemListContainer /> }/>
-        <Route exact path='/item/:itemID' element={ <ItemDetailContainer /> }/>
-      </Routes>
-
-      <Footer />
-
-      </BrowserRouter>
-    </ThemeProvider>
+    <CartProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            {/* <Route exact path='/' element={ <Landing /> }/>
+            <Route exact path='/category' element={ <ItemListContainer /> }/> */}
+            <Route exact path='/' element={ <ItemListContainer /> }/>
+            <Route exact path='/category/:categoryID' element={ <ItemListContainer /> }/>
+            <Route exact path='/item/:itemID' element={ <ItemDetailContainer /> }/>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
+    </CartProvider>
   )
 }
 

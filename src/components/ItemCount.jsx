@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { CartContext } from './CartProvider'
 
-export default function ItemCount({ item, stock, onAdd}) {
-    
+export default function ItemCount({ item, stock}) {
+    const { addItem } = useContext(CartContext)
     let [count, setCount] = useState(0)
-
-    function addItem(){
+    function addCount(){
         if (count<stock) { setCount(count+1) }
     }
-    function removeItem(){
+    function removeCount(){
         if (count>0) { setCount(count-1) }
     }
 
@@ -15,9 +15,9 @@ export default function ItemCount({ item, stock, onAdd}) {
         <div>
             <h3>Ingrese la cantidad</h3>
             <p>{count}</p>
-            <button onClick={ () => removeItem() }>-</button>
-            <button onClick={ () => addItem() }>+</button>
-            <button onClick={ () => { if(count>0){onAdd(count)} }}>Agregar al carrito</button>
+            <button onClick={ () => removeCount() }>-</button>
+            <button onClick={ () => addCount() }>+</button>
+            <button onClick={ () => {if(count>0){addItem(item, count)}} }>Agregar al carrito</button>
         </div>
     )
 }

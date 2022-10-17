@@ -10,8 +10,8 @@ export default function Item({ item }) {
       <Card sx={{ width:200 }}>
         <CardActionArea>
           <CardContent>
-            <h3>{item.id}- {item.name}</h3>
-            <p>{item.price}</p>
+            <h3>{item.name}</h3>
+            <p>${item.price}</p>
             <img src={item.imageURL} alt={`Foto de ${item.name}`} width={'100%'} />
           </CardContent>
         </CardActionArea>

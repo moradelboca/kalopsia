@@ -38,8 +38,9 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
+            {/* Agregado este primer Route porque si no en ghpages no anda al abrir la pagina */}
+            <Route exact path='/react' element={ <ItemListContainer /> }/>
             <Route exact path='/' element={ <ItemListContainer /> }/>
-            <Route exact path='' element={ <ItemListContainer /> }/>
             <Route exact path='/category/:categoryID' element={ <ItemListContainer /> }/>
             <Route exact path='/item/:itemID' element={ <ItemDetailContainer /> }/>
             <Route exact path='/cart' element={ <Cart /> }/>

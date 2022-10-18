@@ -8,6 +8,7 @@ import ItemListContainer from './components/ItemListContainer'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CartProvider from './components/CartProvider'
 import Cart from './components/Cart'
+import Checkout from './components/Checkout'
 
 const theme = createTheme({
   palette: {
@@ -43,6 +44,7 @@ function App() {
             <Route exact path='/category/:categoryID' element={ <ItemListContainer /> }/>
             <Route exact path='/item/:itemID' element={ <ItemDetailContainer /> }/>
             <Route exact path='/cart' element={ <Cart /> }/>
+            <Route exact path='/checkout' element={ <Checkout /> }/>
           </Routes>
           <Footer />
         </BrowserRouter>

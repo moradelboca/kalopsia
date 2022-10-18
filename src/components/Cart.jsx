@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { CartContext } from './CartProvider'
-import Card from '@mui/material/Card'
 import Button from '@mui/material/Button'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
 import { useNavigate } from "react-router-dom"
+import CartItem from './CartItem'
 
 export default function Cart() {
-  const { cart, cartLength, getTotalPrice, removeItem } = useContext(CartContext)
+  const { cart, cartLength, getTotalPrice, clear } = useContext(CartContext)
   const navigate = useNavigate()
   return (
     <div>
@@ -18,21 +16,11 @@ export default function Cart() {
             <Button size="small" onClick={() => navigate("/")}>Volver</Button>
           </div>
         :
-          <div className='items'>
-            {cart.map( puncharse => (
-              <Card key={puncharse.id} variant="outlined">
-                <CardContent>
-                  <h2>{puncharse.name}</h2>
-                  <p>Cantidad: {puncharse.quantity}</p>
-                  <p>${puncharse.price} c/u</p>
-                  <p>Precio: ${puncharse.price * puncharse.quantity}</p>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={() => removeItem(puncharse.id)}>Eliminar</Button>
-                </CardActions>
-              </Card>
-            ))}
+        <div>
+            {cart.map( item => <CartItem key={item.id} item={item} />)}
             <p>Precio total: ${getTotalPrice()}</p>
+            <Button size="small" onClick={clear}>Vaciar Carrito</Button>
+            <Button size="small" onClick={() => navigate("/checkout")}>Continuar Compra</Button>
           </div>
       }
     </div>

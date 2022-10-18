@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-import { doc, getDoc, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 export default function ItemDetailContainer() {
   const [item, setItem] = useState({})
@@ -23,9 +23,9 @@ export default function ItemDetailContainer() {
   
   return (
     <div>
-      {loading ? <p>Loading...</p> : null}
-      {error ? <p>Error!</p> : null}
-      {item.id ? <ItemDetail item={item} /> : null}
+      {loading && <p>Loading...</p>}
+      {error && <p>Error!</p>}
+      {item.id && <ItemDetail item={item} />}
     </div>
   )
 }

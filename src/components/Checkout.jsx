@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Button from '@mui/material/Button'
 import { CartContext } from './CartProvider'
-import { addDoc, collection, getFirestore, QuerySnapshot } from "firebase/firestore"
+import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
 
 

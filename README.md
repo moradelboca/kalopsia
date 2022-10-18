@@ -7,13 +7,21 @@ Kalopsia is an e-commerce system developed in React, which meets the goal of pro
 ## Dependencies and frameworks
 
 [![Node Version](https://img.shields.io/badge/node-16.4.2-green)](https://nodejs.org/es/)
+
 [![Npm Version](https://img.shields.io/badge/npm-8.5.0-green)](https://www.npmjs.com/)
+
 [![React Version](https://img.shields.io/badge/react-^18.2.0-green)](https://es.reactjs.org/)
+
 [![MUI Version](https://img.shields.io/badge/MaterialUI-^5.10.2-green)](https://mui.com/)
+
 [![MUI Icons](https://img.shields.io/badge/MaterialUI%20Icons-^5.10.2-green)](https://mui.com/)
+
 [![Firebase Version](https://img.shields.io/badge/firebase-^9.12.1-green)](https://firebase.google.com/?hl=es)
+
 [![ReactRouter Version](https://img.shields.io/badge/react%20router%20dom-^6.3.0-green)](https://reactrouter.com/en/main)
+
 [![JS Version](https://img.shields.io/badge/JavaScript-ES6-green)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
 [![CSS Version](https://img.shields.io/badge/JavaScript-ES6-green)](https://developer.mozilla.org/es/docs/Web/CSS)
 
 ## Commands
@@ -23,6 +31,7 @@ Kalopsia is an e-commerce system developed in React, which meets the goal of pro
 You can download Kalopsia's code into your computer using the following command lines:
 1) Create a folder
 2) Open a new terminal console and type:
+
 ```
 npm init
 git init
@@ -31,18 +40,19 @@ git clone "https://github.com/moradelboca/react.git"
 
 ### Install dependencies
 3) Once you've downloaded the proyect, you need to install all dependencies in order to use it. Type the following lines in the terminal:
+
 ```
 npm install @mui/material @emotion/react @emotion/styled
 npm install react-router-dom
 npm install firebase
 ``` 
+
 4) Done!
 
 ### Deploy and push
-If some file is modified, you will need to re-build the proyect using:
-```npm run build```
-To deploy the proyect instead, use:
-```npm run deploy```
+If some file is modified, you will need to re-build the proyect using: ```npm run build```
+
+To deploy the proyect instead, use: ```npm run deploy```
 
 ## Database
 

@@ -8,15 +8,8 @@ export default function CartWidget() {
   const navigate = useNavigate()
   return (
     <div onClick={() => navigate("/cart")}>
-      {
-        !cartLength ?
-          <></>
-        :
-          <div>
-            <p>{cartLength}</p>
-            <ShoppingCartIcon />
-          </div>
-      }
+      <p>{cartLength}</p>
+      <ShoppingCartIcon />
     </div>
   )
 }
